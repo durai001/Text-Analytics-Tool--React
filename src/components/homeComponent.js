@@ -182,8 +182,8 @@ class homeComponent extends Component {
                                 {jsonToCSV.map((data, index) =>
                                     <tr key={index} >
                                         <td>{index + 1}</td>
-                                        <td className="cut-text">{data.train}</td>
-                                        <td className="cut-text">  {data.entity}
+                                        <td className="wrap text-truncate  p-4">{data.train}</td>
+                                        <td className="wrap text-truncate  p-4">  {data.entity}
                                             {/* <Highlighter
                                                 highlightClassName="YourHighlightClass"
                                                 searchWords={this.getHighlightedWord(data)}
@@ -234,7 +234,7 @@ class homeComponent extends Component {
 
                                             <div className="form-inline mt-3  ">
                                                 <label htmlFor="selecEntity">Select entity :</label>
-                                                <textarea rows="5" className=" text-primary form-control col-md-10 hiddenInput" id="selecEntity" onSelect={e => this.selectedText(e)} readOnly value={this.state.textField} />
+                                                <textarea rows="4" cols="10" wrap="soft" className=" text-primary form-control col-md-10 hiddenInput" id="selecEntity" onSelect={e => this.selectedText(e)} readOnly value={this.state.textField} />
                                             </div>
                                         </div>
                                         {entityArray.length > 0 ? <table className="table-editable table-hover">
@@ -252,8 +252,8 @@ class homeComponent extends Component {
                                                 {entityArray.map((entity, index) =>
                                                     <tr key={index}>
                                                         <td>{index + 1}</td>
-                                                        <td>{entity.value}</td>
-                                                        <td className="" contentEditable="true" onInput={e => { this.changeEntityValue(e, index) }}  >{entity.tempEntity}</td>
+                                                        <td className="wrap text-truncate p-4" >{entity.value}</td>
+                                                        <td className="wrap   p-4" contentEditable="true" onInput={e => { this.changeEntityValue(e, index) }}  >{entity.tempEntity}</td>
                                                         <td>{entity.start}</td>
                                                         <td>{entity.end}</td>
                                                         <td> <i className="fas fa-minus-circle c-pointer text-danger" onClick={e => { this.removeRow('entityArray', index) }}></i></td>
